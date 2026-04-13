@@ -376,7 +376,16 @@ export default function Home() {
               onMouseLeave={e => (e.currentTarget.style.color = MUTED)}>
               LinkedIn →
             </a>
-            <span className="text-xs" style={{ color: "#BBBBAF" }}>Malmö · open to Lund / Copenhagen</span>
+            <a href="/Junyi_Xiao_CV.pdf" download
+              className="transition-colors duration-150 flex items-center gap-2"
+              style={{ color: MUTED }}
+              onMouseEnter={e => (e.currentTarget.style.color = ACCENT)}
+              onMouseLeave={e => (e.currentTarget.style.color = MUTED)}>
+              Download CV →
+            </a>
+            <span className="text-xs" style={{ color: "#BBBBAF" }}>
+              Malmö · open to Lund / Copenhagen
+            </span>
           </div>
         </div>
       </section>
