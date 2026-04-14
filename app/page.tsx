@@ -369,7 +369,7 @@ export default function Home() {
               onMouseLeave={e => (e.currentTarget.style.color = MUTED)}>
               xiaojunyishuaibi@gmail.com
             </a>
-            <a href="https://www.linkedin.com/in/junyixiao-415998273/"
+            <a href="https://www.linkedin.com/in/junyi-xiao-415998273/"
               className="transition-colors duration-150"
               style={{ color: MUTED }}
               onMouseEnter={e => (e.currentTarget.style.color = ACCENT)}
