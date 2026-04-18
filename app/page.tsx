@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 const ACCENT = "#4A6B5B";
 const ACCENT_LIGHT = "#EBF0ED";
@@ -79,6 +80,7 @@ export default function Home() {
       data: "gaze coordinates · pupil dynamics · latency",
       insight: "Imagined directionality may shape early attentional orientation before conscious report.",
       translation: "Expectation and implied cues may influence user focus before deliberate decision-making begins.",
+      link: null,
     },
     {
       id: "eeg",
@@ -90,6 +92,7 @@ export default function Home() {
       data: "8-channel EEG dynamics · state transitions",
       insight: "Subtle temporal complexity in EEG may reveal clinically relevant regulation patterns.",
       translation: "Passive physiological signals may complement self-report in mental health screening tools.",
+      link: null,
     },
     {
       id: "planwise",
@@ -101,6 +104,19 @@ export default function Home() {
       data: "habit logs · procrastination markers · streaks",
       insight: "Users need interpretive feedback, not only task lists.",
       translation: "Behavioral tracking tools are more effective when they explain patterns, not just record them.",
+      link: null,
+    },
+    {
+      id: "vicarious",
+      title: "Vicarious Trauma & Empathy",
+      year: "2020–2021",
+      context: "BSc Research · Southwest Minzu University",
+      question: "Does empathy mediate the development of vicarious trauma in caregivers?",
+      method: "Emotional Stroop task + SEM mediation (SPSS / AMOS)",
+      data: "reaction time · empathy scale · Big Five · VT symptoms",
+      insight: "Affective empathy is a significant mediator — a risk factor, not just an asset.",
+      translation: "Objective behavioural measures reveal patterns that self-report alone would miss.",
+      link: "/vicarious-trauma",
     },
   ];
 
@@ -264,7 +280,7 @@ export default function Home() {
       <section id="work" style={{ borderTop: `1px solid ${BORDER}` }} className="px-8 py-28">
         <div className="max-w-4xl mx-auto">
           <p className="text-xs tracking-[0.2em] uppercase mb-14" style={{ color: ACCENT }}>Selected Work</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {projects.map(p => {
               const active = activeCard === p.id;
               return (
@@ -301,6 +317,14 @@ export default function Home() {
                     <span className="text-xs uppercase tracking-wide" style={{ color: active ? ACCENT : "#BBBBAF" }}>Lab → Product · </span>
                     {p.translation}
                   </div>
+                  {p.link && (
+                    <Link href={p.link}
+                      onClick={e => e.stopPropagation()}
+                      className="text-xs tracking-widest uppercase transition-colors duration-150 mt-1"
+                      style={{ color: active ? ACCENT : MUTED, textDecoration: "none", alignSelf: "flex-start", borderBottom: `1px solid ${active ? ACCENT : BORDER}`, paddingBottom: "1px" }}>
+                      View full case →
+                    </Link>
+                  )}
                 </div>
               );
             })}
